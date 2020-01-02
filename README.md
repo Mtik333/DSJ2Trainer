@@ -17,6 +17,9 @@ A tu poniżej podgląd na działanie trainera.
 
 [![Deluxe Ski Jump 2 Trainer Showcase](https://img.youtube.com/vi/BnmftD9JtF0/0.jpg)](https://www.youtube.com/watch?v=BnmftD9JtF0)
 
+Użyte biblioteki:
+* JNA (Java Native Access) (v.5.5.0) - https://github.com/java-native-access/jna
+* JNativeHook (v.2.1.0) - https://github.com/kwhat/jnativehook
 _____________________________________
 
 Wind editor (trainer) fpr Deluxe Ski Jump 2.
@@ -27,3 +30,7 @@ Requirement to run this
 * Deluxe Ski Jump 2.1 (registered version, demo is not supported, yet)
 
 Full instruction above.
+
+Used libraries:
+* JNA (Java Native Access) (v.5.5.0) - https://github.com/java-native-access/jna
+* JNativeHook (v.2.1.0) - https://github.com/kwhat/jnativehook
