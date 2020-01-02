@@ -1,5 +1,4 @@
 # Deluxe Ski Jump 2 Edytor Wiatru
-Trainer for Deluxe Ski Jump
 
 Edytor wiatru i trainer do gry Deluxe Ski Jump 2.
 Do działania wymagane są następujące rzeczy:
@@ -8,10 +7,23 @@ Do działania wymagane są następujące rzeczy:
 * DOSBox (testowane na wersji 0.74-3)
 * Deluxe Ski Jump 2.1 (wersja zarejestrowana, demo w tej chwili nie jest wspierane)
 
-Pełna instrukcja będzie zamieszczona w niedługim czasie wraz z wydaniem trainera.
+Pełna instrukcja poniżej:
+
+[![Trainer dp Deluxe Ski Jump 2 - instrukcja instalacji](https://img.youtube.com/vi/ttbO3dwh7tM/0.jpg)](https://www.youtube.com/watch?v=ttbO3dwh7tM)
 
 A tu poniżej podgląd na działanie trainera.
 
 [![Deluxe Ski Jump 2 Trainer Showcase](https://img.youtube.com/vi/ttbO3dwh7tM/0.jpg)](https://www.youtube.com/watch?v=ttbO3dwh7tM)
 
 [![Deluxe Ski Jump 2 Trainer Showcase](https://img.youtube.com/vi/BnmftD9JtF0/0.jpg)](https://www.youtube.com/watch?v=BnmftD9JtF0)
+
+_____________________________________
+
+Wind editor (trainer) fpr Deluxe Ski Jump 2.
+Requirement to run this
+* Windows OS (any between Vista and 10 should be fine)
+* JRE 1.8 installed (available on official Java website)
+* DOSBox (I'm using version 0.74-3)
+* Deluxe Ski Jump 2.1 (registered version, demo is not supported, yet)
+
+Full instruction above.
