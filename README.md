@@ -9,7 +9,7 @@ Do działania wymagane są następujące rzeczy:
 
 Pełna instrukcja poniżej:
 
-[![Trainer dp Deluxe Ski Jump 2 - instrukcja instalacji](https://img.youtube.com/vi/ttbO3dwh7tM/0.jpg)](https://www.youtube.com/watch?v=wF5koO6oowk)
+[![Trainer dp Deluxe Ski Jump 2 - instrukcja instalacji](https://img.youtube.com/vi/wF5koO6oowk/0.jpg)](https://www.youtube.com/watch?v=wF5koO6oowk)
 
 A tu poniżej podgląd na działanie trainera.
 
