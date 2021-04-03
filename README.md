@@ -4,8 +4,8 @@ Edytor wiatru i trainer do gry Deluxe Ski Jump 2.
 Do działania wymagane są następujące rzeczy:
 * system Windows (prawdopodobnie od Visty do 10 będą odpowiednie)
 * zainstalowana Java (JRE) w wersji 1.8 (dostępna do pobrania na stronie Javy)
-* DOSBox (testowane na wersji 0.74-3)
-* Deluxe Ski Jump 2.1 (wersja zarejestrowana, demo w tej chwili nie jest wspierane)
+* DOSBox (wspierane wersje: 0.74-3, 0.74-2, 0.74, 0.73)
+* Deluxe Ski Jump 2.1 (lub Deluxe Ski Jump 2.1P - wersja z polskimi skoczniami)
 
 Pełna instrukcja poniżej:
 
@@ -26,11 +26,11 @@ Wind editor (trainer) fpr Deluxe Ski Jump 2.
 Requirement to run this
 * Windows OS (any between Vista and 10 should be fine)
 * JRE 1.8 installed (available on official Java website)
-* DOSBox (I'm using version 0.74-3)
-* Deluxe Ski Jump 2.1 (registered version, demo is not supported, yet)
+* DOSBox (supported versions: 0.74-3, 0.74-2, 0.74, 0.73)
+* Deluxe Ski Jump 2.1 (or Deluxe Ski Jump 2.1 P - version with polish ski hills)
 
 Full instruction above.
 
 Used libraries:
-* JNA (Java Native Access) (v.5.5.0) - https://github.com/java-native-access/jna
+* JNA (Java Native Access) (v.5.6.0) - https://github.com/java-native-access/jna
 * JNativeHook (v.2.1.0) - https://github.com/kwhat/jnativehook
