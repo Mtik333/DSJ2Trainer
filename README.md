@@ -18,7 +18,7 @@ A tu poniżej podgląd na działanie trainera.
 [![Deluxe Ski Jump 2 Trainer Showcase](https://img.youtube.com/vi/BnmftD9JtF0/0.jpg)](https://www.youtube.com/watch?v=BnmftD9JtF0)
 
 Użyte biblioteki:
-* JNA (Java Native Access) (v.5.5.0) - https://github.com/java-native-access/jna
+* JNA (Java Native Access) (v.5.8.0) - https://github.com/java-native-access/jna
 * JNativeHook (v.2.1.0) - https://github.com/kwhat/jnativehook
 _____________________________________
 
@@ -27,10 +27,10 @@ Requirement to run this
 * Windows OS (any between Vista and 10 should be fine)
 * JRE 1.8 installed (available on official Java website)
 * DOSBox (supported versions: 0.74-3, 0.74-2, 0.74, 0.73)
-* Deluxe Ski Jump 2.1 (or Deluxe Ski Jump 2.1 P - version with polish ski hills)
+* Deluxe Ski Jump 2.1 (or Deluxe Ski Jump 2.1 P - version with polish ski jumping hills)
 
 Full instruction above.
 
 Used libraries:
-* JNA (Java Native Access) (v.5.6.0) - https://github.com/java-native-access/jna
+* JNA (Java Native Access) (v.5.8.0) - https://github.com/java-native-access/jna
 * JNativeHook (v.2.1.0) - https://github.com/kwhat/jnativehook
