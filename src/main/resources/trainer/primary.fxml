@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" spacing="5.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="trainer.core.DSJ2Controller">
+   <padding>
+      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+   </padding>
+   <Label fx:id="topLabel" alignment="CENTER" text="Deluxe Ski Jump 2 Trainer by Mtik333" />
+   <Button fx:id="findDosBoxButton" mnemonicParsing="false" onAction="#detectDosBoxWithDSJ2" text="Detect DOSBox with DSJ2">
+      <opaqueInsets>
+         <Insets />
+      </opaqueInsets>
+      <VBox.margin>
+         <Insets bottom="10.0" />
+      </VBox.margin>
+      <padding>
+         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+      </padding></Button>
+   <Pane fx:id="trainerPane">
+      <HBox>
+         <VBox alignment="CENTER" maxHeight="360.0" maxWidth="360.0" minHeight="360.0" minWidth="360.0"
+               prefHeight="360.0" prefWidth="360.0">
+            <Label fx:id="windStrengthLabel" alignment="CENTER" text="Wind strength" textAlignment="CENTER">
+               <VBox.margin>
+                  <Insets/>
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+               </padding>
+               <opaqueInsets>
+                  <Insets/>
+               </opaqueInsets>
+            </Label>
+            <CheckBox fx:id="extremeModeCheckBox" mnemonicParsing="false" onAction="#checkboxValueChanged"
+                      text="Enable &quot;exteme&quot; mode (set wind strength up to 99)"/>
+            <HBox alignment="TOP_CENTER">
+               <Slider fx:id="windStrengthSlider" blockIncrement="0.1" majorTickUnit="1.0" max="4.0" maxHeight="50.0"
+                       maxWidth="1.7976931348623157E308" minHeight="50.0" minWidth="280.0" minorTickCount="0"
+                       prefHeight="50.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="1.0">
+                  <padding>
+                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                  </padding>
+               </Slider>
+               <TextField fx:id="windStrengthField" alignment="BOTTOM_CENTER" maxHeight="30.0" minHeight="30.0"
+                          prefHeight="30.0" promptText="0">
+                  <HBox.margin>
+                     <Insets/>
+                  </HBox.margin>
+               </TextField>
+            </HBox>
+            <Label fx:id="windDirectionLabel" alignment="CENTER" text="Wind direction (0 means right arrow)"
+                   textAlignment="CENTER">
+               <VBox.margin>
+                  <Insets/>
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+               </padding>
+            </Label>
+            <HBox alignment="TOP_CENTER">
+               <Slider fx:id="windDirectionSlider" blockIncrement="45.0" majorTickUnit="45.0" max="360.0"
+                       maxHeight="50.0" maxWidth="1.7976931348623157E308" minHeight="50.0" minWidth="280.0"
+                       minorTickCount="0" prefHeight="50.0" showTickLabels="true" showTickMarks="true"
+                       snapToTicks="true" value="180.0">
+                  <padding>
+                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                  </padding>
+               </Slider>
+               <TextField fx:id="windDirectionField" alignment="BOTTOM_CENTER" maxHeight="30.0" minHeight="30.0"
+                          prefHeight="30.0" promptText="0"/>
+            </HBox>
+            <Label fx:id="speedUpLabel" alignment="CENTER" layoutX="15.0" layoutY="110.0"
+                   text="Speed up jumper (default hotkey: F11)" textAlignment="CENTER">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+               </padding>
+            </Label>
+            <HBox alignment="TOP_CENTER">
+               <Slider fx:id="speedUpSlider" blockIncrement="1.0" majorTickUnit="1.0" max="5.0" maxHeight="50.0"
+                       maxWidth="1.7976931348623157E308" minHeight="50.0" minWidth="280.0" minorTickCount="0"
+                       prefHeight="50.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="1.0">
+                  <padding>
+                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                  </padding>
+               </Slider>
+               <TextField fx:id="speedUpField" alignment="BOTTOM_CENTER" maxHeight="30.0" minHeight="30.0"
+                          prefHeight="30.0" promptText="0"/>
+            </HBox>
+            <Label fx:id="liftUpLabel" alignment="CENTER" layoutX="10.0" layoutY="200.0"
+                   text="Lift up jumper (default hotkey: F12)" textAlignment="CENTER">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+               </padding>
+            </Label>
+            <HBox>
+               <Slider fx:id="liftUpSlider" blockIncrement="1.0" majorTickUnit="1.0" max="5.0" maxHeight="50.0"
+                       maxWidth="1.7976931348623157E308" minHeight="50.0" minWidth="280.0" minorTickCount="0"
+                       prefHeight="50.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="1.0">
+                  <padding>
+                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                  </padding>
+               </Slider>
+               <TextField fx:id="liftUpField" alignment="BOTTOM_CENTER" maxHeight="30.0" minHeight="30.0"
+                          prefHeight="30.0" promptText="0"/>
+            </HBox>
+         </VBox>
+         <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="360.0" maxWidth="360.0" minHeight="360.0"
+               minWidth="360.0" prefHeight="360.0" prefWidth="360.0">
+            <Label fx:id="increaseWindLabel" alignment="CENTER" layoutX="15.0" layoutY="110.0"
+                   text="Increase wind by (default hotkey: F6)" textAlignment="CENTER">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+               </padding>
+            </Label>
+            <HBox alignment="TOP_CENTER">
+               <Slider fx:id="increaseWindSlider" blockIncrement="0.1" majorTickUnit="0.1" max="1.0"
+                       maxHeight="50.0" maxWidth="1.7976931348623157E308" minHeight="50.0" minWidth="280.0"
+                       minorTickCount="0" prefHeight="50.0" showTickLabels="true" showTickMarks="true"
+                       snapToTicks="true" value="0.2">
+                  <padding>
+                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                  </padding>
+               </Slider>
+               <TextField fx:id="increaseWindField" alignment="BOTTOM_CENTER" maxHeight="30.0" minHeight="30.0"
+                          prefHeight="30.0" promptText="0"/>
+            </HBox>
+            <Label fx:id="decreaseWindLabel" alignment="CENTER" layoutX="10.0" layoutY="200.0"
+                   text="Decrease wind (default hotkey: F7)" textAlignment="CENTER">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+               </padding>
+            </Label>
+            <HBox>
+               <Slider fx:id="decreaseWindSlider" blockIncrement="0.1" majorTickUnit="0.1" max="1.0"
+                       maxHeight="50.0" maxWidth="1.7976931348623157E308" minHeight="50.0" minWidth="280.0"
+                       minorTickCount="0" prefHeight="50.0" showTickLabels="true" showTickMarks="true"
+                       snapToTicks="true" value="0.1">
+                  <padding>
+                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                  </padding>
+               </Slider>
+               <TextField fx:id="decreaseWindField" alignment="BOTTOM_CENTER" maxHeight="30.0" minHeight="30.0"
+                          prefHeight="30.0" promptText="0"/>
+            </HBox>
+         </VBox>
+      </HBox>
+   </Pane>
+   <HBox alignment="CENTER">
+      <VBox>
+         <HBox alignment="CENTER">
+            <Button fx:id="activateButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false"
+                    onAction="#activateTrainer" text="Activate" textAlignment="CENTER">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+               </padding>
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+               </HBox.margin>
+            </Button>
+            <Button fx:id="deactivateButton" alignment="CENTER" contentDisplay="CENTER" layoutX="139.0" layoutY="10.0"
+                    mnemonicParsing="false" onAction="#deactivateTrainer" text="Deactivate" textAlignment="CENTER">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+               </padding>
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+               </HBox.margin>
+            </Button>
+            <VBox.margin>
+               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            </VBox.margin>
+         </HBox>
+         <HBox alignment="CENTER">
+            <Button fx:id="saveButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false"
+                    onAction="#saveValues2" text="Save values" textAlignment="CENTER">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+               </padding>
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+               </HBox.margin>
+            </Button>
+            <Button fx:id="loadButton" alignment="CENTER" contentDisplay="CENTER" layoutX="139.0" layoutY="10.0"
+                    mnemonicParsing="false" onAction="#loadValues2" text="Load values" textAlignment="CENTER">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+               </padding>
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+               </HBox.margin>
+            </Button>
+            <Button fx:id="hotkeysButton" alignment="CENTER" contentDisplay="CENTER" layoutX="96.0" layoutY="15.0"
+                    mnemonicParsing="false" onAction="#showHotkeysWindow" text="Change hotkeys" textAlignment="CENTER">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+               </padding>
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+               </HBox.margin>
+            </Button>
+            <VBox.margin>
+               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            </VBox.margin>
+         </HBox>
+         <HBox alignment="CENTER">
+            <VBox.margin>
+               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            </VBox.margin>
+            <Button fx:id="helpButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false"
+                    onAction="#showHelp" text="Help" textAlignment="CENTER">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+               </padding>
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+               </HBox.margin>
+            </Button>
+            <Button fx:id="exitButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false"
+                    onAction="#exitApp" text="Exit" textAlignment="CENTER">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+               </padding>
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+               </HBox.margin>
+            </Button>
+         </HBox>
+      </VBox>
+      <VBox.margin>
+         <Insets top="5.0" />
+      </VBox.margin>
+   </HBox>
+</VBox>

@@ -1,0 +1,64 @@
+-0,6291 (d0); -0,2957 (d4); 0,6951 (dc); 3,581 (e0,e4)
+-0,2971 (d0); -3,5547 (d4); 3,5671 (dc); 4,629 (e0,e4)
+-2,4898 (d0); 1,1466 (d4); 2,7412 (dc); 2,7100 (e0,e4)
+-0,8904 (d0); 3,1533 (d4); 3,2766 (dc); 1,8459 (e0,e4)
+1,6115 (d0); 1,0720 (d4); 1,9355 (dc); 0,587 (e0,e4)
+0,3970 (d0); 0,1368 (d4); 0,4200 (dc); 0,332 (e0,e4)
+0,7716 (d0); -3,2429 (d4); 3,3335 (dc); -1,3371 (e0); 4,9460 (e4)
+0,6672 (d0); -0,2589 (d4); 0,7157 (dc); -0,3701 (e0); 5,9130 (e4)
+
+dc jest pierwiastkiem sumy kwadratow wartosci d0 i d4 (zwykly pitagoras)
+
+strzałka w prawo: ~6.25
+strzałka w lewo: ~3.12
+strzałka w dół: ~1.55-1.60
+strzałka w górę: ~4.73 (e4), ~-1.57 (e0)
+
+gdy d4 rowne 0:
+
+d0: 1,9302
+dc: 1,9302
+e4: 0,0349 (liczba pi*0?)
+(w prawo od dolu)
+
+d0: 3,1165
+dc: 3,1165
+e4: 6,2710 (liczba pi*2?)
+(w prawo od gory)
+
+d0: -0,0605
+dc: 0,0605
+e0: 3,1415 (liczba pi)
+e4: 3,1600 (odleglosc liczby pi)
+(w lewo od gory)
+
+d0: -1,2999
+dc: 1,2999
+e0: 3,1415 (liczba pi?)
+e4: 3,1239 (odleglosc liczby pi)
+(w lewo od dolu)
+
+gdy d0 rowne 0:
+d4: -0,6596
+dc: 0,6596
+e0: -1,5707 (-pi/2?)
+e4: 4,7609  (3pi/2?)
+(w gore od prawej)
+
+d4: -1,4438
+dc: 1,4438
+e0: -1,5707 (-pi/2?)
+e4: 4,6760 (3pi/2?)
+(w gore od lewej)
+
+d4: 2,277
+dc: 2,277
+e0: 1,5707 (pi/2?)
+e4: 1,5760 (pi/2?)
+(w dol od lewej)
+
+d4: 0,0687
+dc: 0,0687
+e0: 1,5707 (pi/2?)
+e4: 1,5579 (pi/2?)
+(w dol od prawej)

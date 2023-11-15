@@ -1,0 +1,51 @@
+https://stackoverflow.com/questions/18849609/how-to-manipulate-memory-from-java-with-jna-on-windows
+
+https://stackoverflow.com/questions/55478257/java-getting-base-address-of-a-program
+https://stackoverflow.com/questions/21920113/java-jna-api-calculating-base-address
+
+https://github.com/lucidexploration/JonBot-NG/tree/master/src/JNA
+https://github.com/Schaka/gamemap/blob/master/src/main/java/com/gamemap/memory/PsapiTools.java
+
+
+test 1: (//DSJ_v2.00//)
+0E0CEFE2
+0E0D274E
+0E0D49A5
+różnica między 2 i 3: 8791 (2257 HEX)
+
+test 2:
+0CBE2FE2
+0CBE674E
+0CBE89A5
+
+//DSJ_v2.00// wystepuje w czterech miejscach po odpaleniu, zawsze szukac adresu z koncowka 74E
+
+//75c: kod skoczni zaladowany do pamieci (+ hex E)
+//75e: cos dziwnego, wartosc 1 w menu i przy zatrzymaniu gry (+ hex 10)
+//75f: gra spauzowana jesli wartosc 1B (+ hex 11)
+
+75e 75f
+01  1B - skocznia odpalona, gra spauzowana
+01  00 - menu
+00  00 - gra dziala
+
+//7d0: skladowa pozioma wiatru (+ hex 82)
+//7d4: skladowa pionowa wiatru (+ hex 86)
+//7d8: wariancja do sily wiatru? (+ hex 8A) - best to set to 0
+//7dc: finalny wiatr (+ hex 8E) (0 means right arrow, max seems to be around 6)
+//7e0: idealny kierunek wiatru? (+ hex 92) (either same as 7e4 or negative)
+//7e4: przyblizony kierunek wiatru (+ hex 96)
+//7e8: wariancja do kierunku wiatru? (+ hex 9A) - best to set to 0
+
+//d64: speed of ski jumper (increase by 5 increases speed A LOT) (+ hex 616)
+//d68: decreasing means pushing jumper higher (decreasing by 5 is a little bit too much) (+hex 61A)
+
+wind direction (7e4):
+-2.6430 (d0) - (-0.79586) (d4) ~ 3.434 (e0, e4), dc: 2,760
+
+//9a5: jesli dosbox dalej wlaczony, ale dsj2 wylaczony, ten adres nie bedzie mial juz komentarza z dsj2.00
+
+//9a5 - 74e = hex 257
+
+//bf1 - "nie zapisano" czyli tryb powtorki zeby zmienic wiatr w powtorce
+//roznica miedzy komentarzem glownym a adresem to b5d do tylu
