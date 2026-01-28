@@ -9,7 +9,7 @@ public class StringsResourceRB_en extends ListResourceBundle {
     protected Object[][] getContents() {
         return new Object[][]{
                 {"topLabel", "Deluxe Ski Jump 2 Trainer by Mtik333"},
-                {"detectButton", "Detect DOSBox with DSJ2"},
+                {"detectButton", "Detect Emulator with DSJ2"},
                 {"windStrength", "Wind strength"},
                 {"windDirection", "Wind direction (0 means right arrow)"},
                 {"speedJumper", "Speed up jumper (default hotkey: F11)"},
@@ -21,17 +21,25 @@ public class StringsResourceRB_en extends ListResourceBundle {
                 {"help", "Help"},
                 {"exit", "Exit"},
                 {"message", "Message"},
-                {"noDOSBox", "Couldn't find DOSBox process"},
-                {"noDSJ2", "DOSBox launched, but couldn't find launched DSJ2\n" +
+                {"noDOSBox", System.getProperty("os.name").toLowerCase().contains("mac")
+                        ? "Couldn't find Boxer or DOSBox process"
+                        : "Couldn't find DOSBox process"},
+                {"noDSJ2", "Emulator launched, but couldn't find launched DSJ2\n" +
                         "Please check if you have NVIDIA Shadowplay launched,\n" +
-                        "try to disable it and restart DOSBox and trainer.\n" +
+                        "try to disable it and restart the emulator and trainer.\n" +
                         "If this still does not help, please contact me."},
-                {"dsj2Unloaded", "DSJ2 has been unloaded from DOSBox, stopping trainer"},
+                {"dsj2Unloaded", "DSJ2 has been unloaded from the emulator, stopping trainer"},
                 {"foundDSJ2", "Found DSJ 2.1 process!"},
                 {"foundDSJ2P", "Found DSJ 2.1P process!"},
-                {"helpText", "Please read instruction on https://github.com/Mtik333/DSJ2Trainer\n\n" +
-                        "1. Open DOSBox\n2. Launch DSJ2 in DOSBox\n3. Click on detect button\n" +
-                        "4. Set values on sliders\n5. Click activation button\n6. Go ahead and jump"},
+                {"helpText", System.getProperty("os.name").toLowerCase().contains("mac")
+                        ? "Please read instruction on https://github.com/Mtik333/DSJ2Trainer\n\n" +
+                          "1. Open Boxer-2 (or DOSBox)\n2. Launch DSJ2 in the emulator\n3. Click on detect button\n" +
+                          "4. Set values on sliders\n5. Click activation button\n6. Go ahead and jump\n\n" +
+                          "Note: On macOS, you may need to grant Accessibility permissions in\n" +
+                          "System Preferences > Security & Privacy > Privacy > Accessibility"
+                        : "Please read instruction on https://github.com/Mtik333/DSJ2Trainer\n\n" +
+                          "1. Open DOSBox\n2. Launch DSJ2 in DOSBox\n3. Click on detect button\n" +
+                          "4. Set values on sliders\n5. Click activation button\n6. Go ahead and jump"},
                 {"saveValues", "Save values"},
                 {"loadValues", "Load values"},
                 {"activateHotkey", "Activate hotkey"},
@@ -50,12 +58,19 @@ public class StringsResourceRB_en extends ListResourceBundle {
                         "windStrength=3.0\n" +
                         "windDirection=180\n" +
                         "liftUp=0.0"},
-                {"adminDOSBox", "DOSBox has been launched as administrator: \nplease either run it as standard user\n"
-                        + "or run this trainer as administrator"},
+                {"adminDOSBox", System.getProperty("os.name").toLowerCase().contains("mac")
+                        ? "Could not access the emulator process.\n" +
+                          "On macOS, ensure the app is code-signed with debugger entitlement,\n" +
+                          "or try running with sudo (not recommended for GUI apps).\n" +
+                          "You may also need to disable SIP for memory access."
+                        : "DOSBox has been launched as administrator: \nplease either run it as standard user\n"
+                          + "or run this trainer as administrator"},
                 {"checkBoxLabel", "Extreme mode (set wind strength up to 99)"},
                 {"returnButton", "Return"},
-                {"detectVersion", "Detected DOSBox version: "},
-                {"unsupportedDOSBox", "Supported DOSBox versions are: 0.73, 0.74\nDetected DOSBox version is: 0."},
+                {"detectVersion", "Detected emulator version: "},
+                {"unsupportedDOSBox", System.getProperty("os.name").toLowerCase().contains("mac")
+                        ? "Supported emulators: Boxer-2, DOSBox 0.73, 0.74"
+                        : "Supported DOSBox versions are: 0.73, 0.74\nDetected DOSBox version is: 0."},
                 {"unknownException", "This should not happen - please write to me about this issue"}
         };
     }
