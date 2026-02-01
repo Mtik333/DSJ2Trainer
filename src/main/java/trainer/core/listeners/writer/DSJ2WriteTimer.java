@@ -1,10 +1,10 @@
 package trainer.core.listeners.writer;
 
-import com.sun.jna.platform.win32.WinNT.HANDLE;
-import org.jnativehook.keyboard.NativeKeyEvent;
+import com.github.kwhat.jnativehook.keyboard.NativeKeyEvent;
 import trainer.core.DSJ2Controller;
 import trainer.core.DSJ2FXInterfaceHelper;
 import trainer.core.DSJ2TrainerV2;
+import trainer.core.platform.PlatformMemoryAccess.ProcessHandle;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -22,7 +22,7 @@ public class DSJ2WriteTimer extends AbstractDSJ2WriteTimer {
         logger.setLevel(DSJ2FXInterfaceHelper.logLevel);
     }
 
-    public DSJ2WriteTimer(HANDLE dosBoxProcess, long dsj2CommentAddressValue, long dsj2LoadedAddressValue,
+    public DSJ2WriteTimer(ProcessHandle dosBoxProcess, long dsj2CommentAddressValue, long dsj2LoadedAddressValue,
                           DSJ2Controller controller) {
         super(dosBoxProcess, dsj2CommentAddressValue, dsj2LoadedAddressValue, controller);
     }

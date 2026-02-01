@@ -1,17 +1,14 @@
 package trainer.core.listeners.writer;
 
-import com.sun.jna.Memory;
-import com.sun.jna.Pointer;
-import com.sun.jna.platform.win32.Kernel32;
-import com.sun.jna.platform.win32.WinNT;
 import javafx.application.Platform;
-import org.jnativehook.GlobalScreen;
-import org.jnativehook.NativeHookException;
-import org.jnativehook.keyboard.NativeKeyEvent;
-import org.jnativehook.keyboard.NativeKeyListener;
+import com.github.kwhat.jnativehook.GlobalScreen;
+import com.github.kwhat.jnativehook.NativeHookException;
+import com.github.kwhat.jnativehook.keyboard.NativeKeyEvent;
+import com.github.kwhat.jnativehook.keyboard.NativeKeyListener;
 import trainer.core.DSJ2Controller;
 import trainer.core.DSJ2FXInterfaceHelper;
 import trainer.core.DSJ2TrainerV2;
+import trainer.core.platform.PlatformMemoryAccess.ProcessHandle;
 import trainer.exceptions.DSJ2UnloadedException;
 
 import java.util.TimerTask;
@@ -22,7 +19,7 @@ public abstract class AbstractDSJ2WriteTimer extends TimerTask implements Native
 
     static final Logger logger = Logger.getLogger(AbstractDSJ2WriteTimer.class.getName());
     private static final float CONSTANT_180_FLOAT = 180f;
-    final WinNT.HANDLE dosBoxProcess;
+    final ProcessHandle dosBoxProcess;
     final long dsj2CommentAddressValue;
     final long dsj2LoadedAddressValue;
     final DSJ2Controller dsj2Controller;
@@ -37,7 +34,7 @@ public abstract class AbstractDSJ2WriteTimer extends TimerTask implements Native
         logger.setLevel(DSJ2FXInterfaceHelper.logLevel);
     }
 
-    protected AbstractDSJ2WriteTimer(WinNT.HANDLE dosBoxProcess, long dsj2CommentAddressValue,
+    protected AbstractDSJ2WriteTimer(ProcessHandle dosBoxProcess, long dsj2CommentAddressValue,
                                      long dsj2LoadedAddressValue, DSJ2Controller controller) {
         this.dosBoxProcess = dosBoxProcess;
         this.dsj2CommentAddressValue = dsj2CommentAddressValue;
@@ -52,8 +49,10 @@ public abstract class AbstractDSJ2WriteTimer extends TimerTask implements Native
     }
 
     void writeValues() {
-        logger.log(Level.INFO, "writeValues");
+        logger.log(Level.INFO, "writeValues - base address: 0x" + Long.toHexString(dsj2CommentAddressValue));
         //set wind strength variance to 0
+        logger.log(Level.INFO, "Writing wind strength variance to 0x" +
+            Long.toHexString(dsj2CommentAddressValue + DSJ2TrainerV2.WIND_STRENGTH_VARIANCE_OFFSET));
         DSJ2TrainerV2.writeSingleFloatValue(dosBoxProcess, dsj2CommentAddressValue,
                 DSJ2TrainerV2.WIND_STRENGTH_VARIANCE_OFFSET, 0);
         //set wind direction variance to 0
@@ -63,8 +62,7 @@ public abstract class AbstractDSJ2WriteTimer extends TimerTask implements Native
         logger.log(Level.FINE, "windDirectionPi: " + windDirectionPi);
         float horizontalValuePart = (float) (Math.cos(Math.toRadians(windDirectionValue)) * windStrengthValue);
         float verticalValuePart = (float) (Math.sin(Math.toRadians(windDirectionValue)) * windStrengthValue);
-        logger.log(Level.FINE, "horizontalValuePart: " + horizontalValuePart);
-        logger.log(Level.FINE, "verticalValuePart: " + verticalValuePart);
+        logger.log(Level.INFO, "Writing wind - horizontal: " + horizontalValuePart + ", vertical: " + verticalValuePart);
         DSJ2TrainerV2.writeSingleFloatValue(dosBoxProcess, dsj2CommentAddressValue,
                 DSJ2TrainerV2.ROUGH_WIND_VALUE_OFFSET, windDirectionPi);
         DSJ2TrainerV2.writeSingleFloatValue(dosBoxProcess, dsj2CommentAddressValue,
@@ -73,20 +71,23 @@ public abstract class AbstractDSJ2WriteTimer extends TimerTask implements Native
                 DSJ2TrainerV2.WIND_STRENGTH_HORIZONTAL_PART_OFFSET, horizontalValuePart);
         DSJ2TrainerV2.writeSingleFloatValue(dosBoxProcess, dsj2CommentAddressValue,
                 DSJ2TrainerV2.WIND_STRENGTH_VERTICAL_PART_OFFSET, verticalValuePart);
+
+        // Verify the write by reading back
+        float readBack = DSJ2TrainerV2.readSingleValue(dosBoxProcess, dsj2CommentAddressValue,
+                DSJ2TrainerV2.WIND_STRENGTH_HORIZONTAL_PART_OFFSET);
+        logger.log(Level.INFO, "Read back horizontal wind value: " + readBack +
+            " (expected: " + horizontalValuePart + ")");
     }
 
     boolean isDsj2StillLoaded() {
         logger.log(Level.INFO, "isDsj2StillLoaded: dsj2LoadedAddressValue: " + dsj2LoadedAddressValue);
-        int memorySize = DSJ2TrainerV2.DSJ_V2_STRING.length() * 2;
-        Memory memory = new Memory(memorySize);
-        boolean readMemorySuccess = Kernel32.INSTANCE.ReadProcessMemory(dosBoxProcess,
-                new Pointer(dsj2LoadedAddressValue), memory, memorySize, null);
-        String stringValue = memory.getString(0L);
-        if (stringValue.contentEquals(DSJ2TrainerV2.DSJ_V2_STRING)) {
-            logger.log(Level.INFO, "readMemorySuccess: " + readMemorySuccess + "; DSJ2 still in memory");
+        boolean stillLoaded = DSJ2TrainerV2.isStringAtAddress(dosBoxProcess, dsj2LoadedAddressValue,
+                DSJ2TrainerV2.DSJ_V2_STRING);
+        if (stillLoaded) {
+            logger.log(Level.INFO, "DSJ2 still in memory");
             return true;
         }
-        logger.log(Level.INFO, "readMemorySuccess: " + readMemorySuccess + "; stringValue:" + stringValue);
+        logger.log(Level.INFO, "DSJ2 no longer in memory");
         return false;
     }
 

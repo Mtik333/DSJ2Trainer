@@ -2,6 +2,15 @@
 
 Zmiany w kodzie dokumentowane tutaj:
 
+## [1.5.0] - 28.01.2026
+Duża aktualizacja - wsparcie dla wielu platform:
+- Dodane wsparcie dla macOS z emulatorem Boxer-2
+- Zrefaktorowana baza kodu z warstwą abstrakcji dla dostępu do pamięci
+- Dodane wykrywanie procesów Boxer lub DOSBox na macOS
+- Wykorzystanie mach kernel APIs na macOS do dostępu do pamięci procesów
+- Zaktualizowane komunikaty UI zależne od platformy
+- Funkcjonalność Windows pozostaje bez zmian
+
 ## [1.4.1] - 02.07.2023
 Bugfix:
 - naprawiony problem z wyjątkiem blokującym uruchomienie programu gdy język systemu jest inny niż angielski lub polski;

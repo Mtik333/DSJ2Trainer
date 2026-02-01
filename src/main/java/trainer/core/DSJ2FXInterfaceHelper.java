@@ -3,7 +3,7 @@ package trainer.core;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.scene.control.Alert;
-import org.jnativehook.keyboard.NativeKeyEvent;
+import com.github.kwhat.jnativehook.keyboard.NativeKeyEvent;
 import trainer.DSJ2FXInterface;
 
 import java.util.HashMap;

@@ -1,6 +1,5 @@
 package trainer.core;
 
-import com.sun.jna.platform.win32.WinNT.HANDLE;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,10 +14,10 @@ import javafx.scene.control.Tooltip;
 import javafx.scene.effect.GaussianBlur;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import org.jnativehook.GlobalScreen;
-import org.jnativehook.NativeHookException;
-import org.jnativehook.keyboard.NativeKeyEvent;
-import org.jnativehook.keyboard.NativeKeyListener;
+import com.github.kwhat.jnativehook.GlobalScreen;
+import com.github.kwhat.jnativehook.NativeHookException;
+import com.github.kwhat.jnativehook.keyboard.NativeKeyEvent;
+import com.github.kwhat.jnativehook.keyboard.NativeKeyListener;
 import trainer.DSJ2FXInterface;
 import trainer.core.listeners.sliders.SliderListener;
 import trainer.core.listeners.textfields.DecreaseWindFieldListener;
@@ -31,6 +30,7 @@ import trainer.core.listeners.textfields.WindStrengthFieldListener;
 import trainer.core.listeners.writer.AbstractDSJ2WriteTimer;
 import trainer.core.listeners.writer.DSJ2WriteTimer;
 import trainer.core.listeners.writer.DSJ2WriteTimerExtreme;
+import trainer.core.platform.PlatformMemoryAccess.ProcessHandle;
 import trainer.exceptions.DSJ2DefaultValuesLoadingException;
 import trainer.exceptions.DSJ2NotLaunchedException;
 import trainer.exceptions.DosBoxProcessNotFoundException;
@@ -90,7 +90,7 @@ public class DSJ2Controller implements Initializable, NativeKeyListener {
     public TextField increaseWindField;
     public TextField decreaseWindField;
 
-    private HANDLE dosBoxProcess;
+    private ProcessHandle dosBoxProcess;
     private long dsj2CommentAddressValue;
     private long dsj2LoadedAddressValue;
     private float speedUpValue;

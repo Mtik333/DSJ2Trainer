@@ -2,6 +2,15 @@
 
 Changes documented here:
 
+## [1.5.0] - 28.01.2026
+Major update - Cross-platform support:
+- Added macOS support with Boxer-2 DOS emulator
+- Refactored codebase to use platform abstraction layer for memory access
+- Added support for detecting Boxer or DOSBox processes on macOS
+- Uses mach kernel APIs on macOS for process memory access
+- Updated UI messages to be platform-aware
+- Windows functionality remains unchanged
+
 ## [1.4.1] - 02.07.2023
 Bugfix:
 - fixed issue with exception stopping program when locale is different than EN or PL
